@@ -1,9 +1,9 @@
 function APIError(code, message) {
-  this.statusCode = code;
-  this.message = message;
-  this.stack = (new Error()).stack;
+  this.statusCode = code
+  this.message = message
+  this.stack = (new Error()).stack
 }
 
-APIError.prototype = new Error();
+APIError.prototype = new Error()
 
-module.exports = APIError;
+module.exports = APIError
