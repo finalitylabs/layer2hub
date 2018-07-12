@@ -46,7 +46,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/JSONGeneric"
-            
+
   /v1/lc/update:
     x-swagger-router-controller: ledgerChannel
     put:
@@ -94,7 +94,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/JSONGeneric"
-            
+
   /v1/vc/open:
     x-swagger-router-controller: virtualChannel
     post:
@@ -118,7 +118,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/JSONGeneric"
-            
+
   /v1/vc/update:
     x-swagger-router-controller: virtualChannel
     put:
@@ -165,7 +165,7 @@ paths:
         default:
           description: Error
           schema:
-            $ref: "#/definitions/JSONGeneric"     
+            $ref: "#/definitions/JSONGeneric"
 # schema definitions
 definitions:
   JSONGeneric:

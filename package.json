@@ -2,15 +2,24 @@
   "name": "layer2hub",
   "version": "0.0.0",
   "description": "swagger-express-ts implementation of layer2hub API",
-  "main": "index.ts",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "src/server/index.js",
   "dependencies": {
-    "swagger-express-ts": "^1.0.0"
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "swagger-tools": "0.10.1",
+    "swagger": "^0.7.5",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "should": "^13.2.0",
+    "supertest": "^3.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect-brk src/server/index.js",
+    "start": "node src/server/index.js",
+    "start:dev": "swagger_swagger_fileName=src/spec/layer2hub_0.0.0_swagger.yaml swagger project start -m",
+    "edit": "swagger_swagger_fileName=src/spec/layer2hub_0.0.0_swagger.yaml swagger project edit",
+    "test": "swagger_swagger_fileName=src/spec/layer2hub_0.0.0_swagger.yaml swagger project test"
   },
   "repository": {
     "type": "git",
