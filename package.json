@@ -1,7 +1,7 @@
 {
   "name": "layer2hub",
   "version": "0.0.0",
-  "description": "swagger-express-ts implementation of layer2hub API",
+  "description": "swagger-tools implementation of layer2hub API",
   "main": "src/server/index.js",
   "dependencies": {
     "connect": "^3.2.0",
