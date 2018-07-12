@@ -36,11 +36,13 @@ if (cluster.isMaster) {
   }
 
   // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
+    // TODO populate spec via config or env var
   const spec = fs.readFileSync(path.join(__dirname, '/../spec/layer2hub_0.0.0_swagger.yaml'), 'utf8')
   const swaggerDoc = jsyaml.safeLoad(spec)
 
   // allow override of spec host for interactive doc usage
-  swaggerDoc.host = isProduction ? `api.layer2hub.com:${serverPort}` : `localhost:${serverPort}`
+  // TODO populate host via config or env var
+  swaggerDoc.host = isProduction ? `layer2hub.network:${serverPort}` : `localhost:${serverPort}`
 
   // Initialize the Swagger middleware
   swaggerTools.initializeMiddleware(swaggerDoc, middleware => {
@@ -56,7 +58,6 @@ if (cluster.isMaster) {
 
       // OPTIONS requests return headers
       if (req.method.toLowerCase() === 'options') {
-        console.log('OPTIONS')
         return res.end()
       }
 
