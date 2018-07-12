@@ -1,0 +1,37 @@
+{
+  "name": "layer2hub",
+  "version": "0.0.0",
+  "description": "swagger-express-ts implementation of layer2hub API",
+  "main": "index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "swagger-express-ts": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finalitylabs/layer2hub.git"
+  },
+  "keywords": [
+    "layer2",
+    "ethereum",
+    "smart",
+    "contracts",
+    "state",
+    "channels",
+    "general",
+    "set",
+    "blockchain",
+    "cryptocurrency"
+  ],
+  "author": "Lex Lewthor",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/finalitylabs/layer2hub/issues"
+  },
+  "homepage": "https://github.com/finalitylabs/layer2hub#readme"
+}

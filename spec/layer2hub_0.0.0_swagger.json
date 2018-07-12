@@ -1,0 +1,216 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This spec defines the API for layer2 hub\n",
+    "version" : "0.0.0",
+    "title" : "layer2 hub",
+    "contact" : {
+      "email" : "alexvlewis@gmail.com"
+    }
+  },
+  "tags" : [ {
+    "name" : "layer2lib",
+    "description" : "State-channels on Ethereum",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "https://github.com/layer2lib"
+    }
+  } ],
+  "basePath" : "/",
+  "schemes" : [ "http", "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/v1/lc/open" : {
+      "x-swagger-router-controller" : "ledgerChannel",
+      "post" : {
+        "tags" : [ "lc" ],
+        "operationId" : "openLC",
+        "description" : "Offer to open a ledger channel with Ingrid",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    },
+    "/v1/lc/update" : {
+      "x-swagger-router-controller" : "ledgerChannel",
+      "put" : {
+        "tags" : [ "lc" ],
+        "operationId" : "updateLC",
+        "description" : "Offer to update a ledger channel with Ingrid",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    },
+    "/v1/lc/close" : {
+      "x-swagger-router-controller" : "ledgerChannel",
+      "post" : {
+        "tags" : [ "lc" ],
+        "operationId" : "closeLC",
+        "description" : "Close ledger channel with Ingrid",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    },
+    "/v1/vc/open" : {
+      "x-swagger-router-controller" : "virtualChannel",
+      "post" : {
+        "tags" : [ "vc" ],
+        "operationId" : "openVC",
+        "description" : "Offer to open a virtual channel with Bob",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    },
+    "/v1/vc/update" : {
+      "x-swagger-router-controller" : "virtualChannel",
+      "put" : {
+        "tags" : [ "vc" ],
+        "operationId" : "updateVC",
+        "description" : "Offer to update a virtual channel with Alice/Bob",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    },
+    "/v1/vc/close" : {
+      "x-swagger-router-controller" : "virtualChannel",
+      "post" : {
+        "tags" : [ "vc" ],
+        "operationId" : "closeVC",
+        "description" : "Close virtual channel with Alice/Bob",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "Channel data",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/JSONGeneric"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "$ref" : "#/definitions/JSONGeneric"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "JSONGeneric" : {
+      "type" : "object"
+    }
+  }
+}
