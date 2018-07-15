@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const http = require('http')
+const uuid = require('uuid/v4')
 const cluster = require('cluster')
 const app = require('connect')()
 const swaggerTools = require('swagger-tools')
@@ -42,7 +43,9 @@ if (cluster.isMaster) {
 
   // allow override of spec host for interactive doc usage
   // TODO populate host via config or env var
-  swaggerDoc.host = isProduction ? `layer2hub.network:${serverPort}` : `localhost:${serverPort}`
+  swaggerDoc.host = isProduction ?
+    (process.env.HOST || `layer2hub.network:${serverPort}`) :
+    `localhost:${serverPort}`
 
   // Initialize the Swagger middleware
   swaggerTools.initializeMiddleware(swaggerDoc, middleware => {
@@ -61,9 +64,16 @@ if (cluster.isMaster) {
         return res.end()
       }
 
-      //give us a place to store error/responses
+      // give us a place to store error/responses
+      // append a status code to the request for use within auth controller
       req.data = { statusCode: 200 }
-      res.data = { statusCode: 200 }
+      // setup a valid response with a request Id for logging
+      res.data = {
+        statusCode: 200,
+        body: {
+          request_id: uuid()
+        }
+      }
       next()
     })
 
@@ -92,8 +102,8 @@ if (cluster.isMaster) {
 
     // handle all responses
     app.use((req, res, next) => {
-      // all valid responses have a body
-      if (!res.data.body) {
+      // all valid success/error responses have a payload
+      if (!res.data.body.payload) {
         response.error(res, 404, req.originalUrl + ' Not found')
       }
       response.send(res, res.data, next)

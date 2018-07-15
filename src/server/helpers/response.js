@@ -1,12 +1,9 @@
-const uuid = require('uuid/v4')
 
-module.exports.success = (obj, code, data, next) =>  {
+
+module.exports.success = (obj, code, payload, next) =>  {
   //console.log('success',body)
   obj.data.statusCode = code
-  obj.data.body = {
-    data,
-    request_id: uuid()
-  }
+  obj.data.body.payload = payload
 
   if (next) {
     next()
@@ -16,10 +13,7 @@ module.exports.success = (obj, code, data, next) =>  {
 module.exports.error = (obj, code, message, next) => {
   //console.log('error',code,message)
   obj.data.statusCode = code
-  obj.data.body = {
-    data: { message },
-    request_id: uuid()
-  }
+  obj.data.body.payload = { message }
 
   if (next) {
     next()
