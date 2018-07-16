@@ -2,7 +2,7 @@
   "name": "layer2hub",
   "version": "0.0.0",
   "description": "swagger-tools implementation of layer2hub API",
-  "main": "dist/client/layer2hub.umd.js",
+  "main": "src/server/index.js",
   "module": "dist/client/layer2hub.es5.js",
   "typings": "dist/client/types/layer2hub.d.ts",
   "dependencies": {
