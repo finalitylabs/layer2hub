@@ -2,20 +2,32 @@
   "name": "layer2hub",
   "version": "0.0.0",
   "description": "swagger-tools implementation of layer2hub API",
-  "main": "src/server/index.js",
+  "main": "dist/client/layer2hub.umd.js",
+  "module": "dist/client/layer2hub.es5.js",
+  "typings": "dist/client/types/layer2hub.d.ts",
   "dependencies": {
     "connect": "^3.2.0",
-    "js-layer2lib": "github:layer2lib/js-layer2lib#set-channels",
+    "js-layer2lib": "github:layer2lib/js-layer2lib#firebase",
     "js-yaml": "^3.3.0",
     "swagger-tools": "0.10.1",
     "swagger": "^0.7.5",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "@types/node": "^10.5.2",
+    "rollup": "^0.62.0",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.15.1",
     "should": "^13.2.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "typedoc": "^0.11.0",
+    "typescript": "^2.9.2"
   },
   "scripts": {
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "debug": "node --inspect-brk src/server/index.js",
     "start": "node src/server/index.js",
     "start:dev": "swagger_swagger_fileName=src/spec/layer2hub_0.0.0_swagger.yaml swagger project start -m",
@@ -38,7 +50,7 @@
     "blockchain",
     "cryptocurrency"
   ],
-  "author": "Lex Lewthor",
+  "author": "Lex Lewthor <alexvlewis@gmail.com>",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/finalitylabs/layer2hub/issues"
