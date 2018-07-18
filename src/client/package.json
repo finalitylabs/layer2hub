@@ -1,0 +1,35 @@
+{
+  "name": "layer2hub-client",
+  "version": "0.0.0",
+  "description": "TypeScript client for layer2hub",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "./node_modules/.bin/webpack --display-error-details",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finalitylabs/layer2hub.git"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "client"
+  ],
+  "author": "Lex Lewthor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finalitylabs/layer2hub/issues"
+  },
+  "homepage": "https://github.com/finalitylabs/layer2hub#readme",
+  "devDependencies": {
+    "@types/superagent": "^3.8.2",
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "superagent": "^3.8.3"
+  }
+}

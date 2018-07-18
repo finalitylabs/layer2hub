@@ -18,7 +18,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'spank-sdk-client.js',
+    filename: 'layer2hub-client.js',
     path: path.resolve(__dirname, 'dist')
   }
 }
