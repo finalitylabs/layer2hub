@@ -15,20 +15,12 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "^10.5.2",
-    "rollup": "^0.62.0",
-    "rollup-plugin-commonjs": "^9.0.0",
-    "rollup-plugin-json": "^3.0.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.15.1",
     "should": "^13.2.0",
     "supertest": "^3.0.0",
-    "typedoc": "^0.11.0",
-    "typescript": "^2.9.2"
+    "swagger-ts-client": "^0.9.6"
   },
   "scripts": {
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "./node_modules/.bin/swagger-ts-client -s ./src/spec/layer2hub_0.0.0_swagger.json -t ./src/client/lib/types/hub.d.ts -o ./src/client/lib/",
     "debug": "node --inspect-brk src/server/index.js",
     "start": "node src/server/index.js",
     "start:dev": "swagger_swagger_fileName=src/spec/layer2hub_0.0.0_swagger.yaml swagger project start -m",
